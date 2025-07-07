@@ -15,7 +15,7 @@ export const LeftSidebar: React.FC = () => {
     const playerOfWeek = {
         name: 'Donk',
         country: '🇷🇺',
-        team: 'Данила Крышанова',
+        team: 'Даниил Крышковец',
         rating: '1.41',
         image: `${process.env.PUBLIC_URL}/donk.png`
     };
