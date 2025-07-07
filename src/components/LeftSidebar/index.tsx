@@ -31,29 +31,41 @@ export const LeftSidebar: React.FC = () => {
                     </div>
                 }
                 headStyle={{ 
-                    background: 'linear-gradient(135deg, rgba(74, 85, 104, 0.4), rgba(45, 55, 72, 0.4))', 
+                    background: 'rgba(255, 255, 255, 0.08)',
                     border: 'none',
-                    borderRadius: '8px 8px 0 0'
+                    borderRadius: '18px 18px 0 0'
                 }}
                 bodyStyle={{ padding: 0 }}
                 style={{ 
-                    background: 'rgba(45, 55, 72, 0.3)',
-                    border: 'none',
-                    borderRadius: 8
+                    background: 'rgba(255, 255, 255, 0.15)',
+                    border: '1px solid rgba(255, 255, 255, 0.18)',
+                    boxShadow: '0 8px 32px 0 rgba(31, 38, 135, 0.18)',
+                    backdropFilter: 'blur(16px)',
+                    WebkitBackdropFilter: 'blur(16px)',
+                    borderRadius: 18
                 }}
             >
-                <div style={{ padding: '12px 16px', background: 'rgba(26, 32, 44, 0.7)', borderRadius: '0 0 8px 8px' }}>
+                <div style={{ padding: '12px 16px', background: 'transparent', borderRadius: '0 0 18px 18px' }}>
                     <div style={{ display: 'flex', gap: 12, marginBottom: 16 }}>
                         <Button 
                             type="primary" 
                             size="small"
-                            style={{ background: '#4a5568', border: 'none' }}
+                            style={{ 
+                                background: 'rgba(255, 255, 255, 0.2)', 
+                                border: '1px solid rgba(255, 255, 255, 0.3)',
+                                borderRadius: 8
+                            }}
                         >
                             HLTV
                         </Button>
                         <Button 
                             size="small"
-                            style={{ background: 'transparent', color: '#a0aec0', border: '1px solid #4a5568' }}
+                            style={{ 
+                                background: 'rgba(255, 255, 255, 0.1)', 
+                                color: '#a0aec0', 
+                                border: '1px solid rgba(255, 255, 255, 0.2)',
+                                borderRadius: 8
+                            }}
                         >
                             Valve
                         </Button>
@@ -97,18 +109,21 @@ export const LeftSidebar: React.FC = () => {
                     </div>
                 }
                 headStyle={{ 
-                    background: 'linear-gradient(135deg, rgba(74, 85, 104, 0.4), rgba(45, 55, 72, 0.4))', 
+                    background: 'rgba(255, 255, 255, 0.08)',
                     border: 'none',
-                    borderRadius: '8px 8px 0 0'
+                    borderRadius: '18px 18px 0 0'
                 }}
                 style={{ 
-                    background: 'rgba(45, 55, 72, 0.3)',
-                    border: 'none',
-                    borderRadius: 8
+                    background: 'rgba(255, 255, 255, 0.15)',
+                    border: '1px solid rgba(255, 255, 255, 0.18)',
+                    boxShadow: '0 8px 32px 0 rgba(31, 38, 135, 0.18)',
+                    backdropFilter: 'blur(16px)',
+                    WebkitBackdropFilter: 'blur(16px)',
+                    borderRadius: 18
                 }}
                 bodyStyle={{ 
-                    background: 'rgba(26, 32, 44, 0.3)', 
-                    borderRadius: '0 0 8px 8px',
+                    background: 'transparent', 
+                    borderRadius: '0 0 18px 18px',
                     textAlign: 'center'
                 }}
             >
@@ -139,7 +154,8 @@ export const LeftSidebar: React.FC = () => {
                         {playerOfWeek.country} {playerOfWeek.team}
                     </Text>
                     <div style={{ 
-                        background: '#4a5568', 
+                        background: 'rgba(255, 255, 255, 0.2)', 
+                        border: '1px solid rgba(255, 255, 255, 0.3)',
                         padding: '4px 12px', 
                         borderRadius: 12,
                         marginTop: 8

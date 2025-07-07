@@ -64,18 +64,21 @@ export const RightSidebar: React.FC = () => {
                     </div>
                 }
                 headStyle={{ 
-                    background: 'linear-gradient(135deg, rgba(74, 85, 104, 0.4), rgba(45, 55, 72, 0.4))', 
+                    background: 'rgba(255, 255, 255, 0.08)',
                     border: 'none',
-                    borderRadius: '8px 8px 0 0'
+                    borderRadius: '18px 18px 0 0'
                 }}
                 style={{ 
-                    background: 'rgba(45, 55, 72, 0.3)',
-                    border: 'none',
-                    borderRadius: 8
+                    background: 'rgba(255, 255, 255, 0.15)',
+                    border: '1px solid rgba(255, 255, 255, 0.18)',
+                    boxShadow: '0 8px 32px 0 rgba(31, 38, 135, 0.18)',
+                    backdropFilter: 'blur(16px)',
+                    WebkitBackdropFilter: 'blur(16px)',
+                    borderRadius: 18
                 }}
                 bodyStyle={{ 
-                    background: 'rgba(26, 32, 44, 0.3)', 
-                    borderRadius: '0 0 8px 8px',
+                    background: 'transparent', 
+                    borderRadius: '0 0 18px 18px',
                     padding: 16
                 }}
             >
@@ -104,11 +107,11 @@ export const RightSidebar: React.FC = () => {
                         onClick={handleGoToToday}
                         style={{ 
                             marginLeft: 8, 
-                            background: '#4a5568', 
+                            background: 'rgba(255, 255, 255, 0.2)', 
+                            border: '1px solid rgba(255, 255, 255, 0.3)',
                             color: '#ffffff', 
-                            border: 'none', 
                             padding: '2px 8px', 
-                            borderRadius: 4,
+                            borderRadius: 8,
                             fontSize: 12,
                             cursor: 'pointer'
                         }}
@@ -121,8 +124,9 @@ export const RightSidebar: React.FC = () => {
                 <div style={{ 
                     marginBottom: 12, 
                     padding: '8px 12px', 
-                    background: 'rgba(74, 85, 104, 0.6)', 
-                    borderRadius: 4,
+                    background: 'rgba(255, 255, 255, 0.1)', 
+                    border: '1px solid rgba(255, 255, 255, 0.2)',
+                    borderRadius: 12,
                     textAlign: 'center'
                 }}>
                     <div style={{ color: '#ffffff', fontSize: 14, fontWeight: 'bold' }}>
@@ -134,7 +138,12 @@ export const RightSidebar: React.FC = () => {
                 </div>
 
                 {/* Календарная сетка */}
-                <div style={{ background: 'rgba(45, 55, 72, 0.7)', borderRadius: 4, padding: 8 }}>
+                <div style={{ 
+                    background: 'rgba(255, 255, 255, 0.08)', 
+                    border: '1px solid rgba(255, 255, 255, 0.15)',
+                    borderRadius: 12, 
+                    padding: 8 
+                }}>
                     <div style={{ 
                         display: 'grid', 
                         gridTemplateColumns: 'repeat(7, 1fr)', 
@@ -171,12 +180,12 @@ export const RightSidebar: React.FC = () => {
                                     key={day} 
                                     style={{ 
                                         color: isToday ? '#ffffff' : '#a0aec0',
-                                        background: isToday ? '#4a5568' : (hasNews ? '#2a4365' : 'transparent'),
+                                        background: isToday ? 'rgba(255, 255, 255, 0.25)' : (hasNews ? 'rgba(255, 255, 255, 0.1)' : 'transparent'),
                                         padding: '4px 2px',
-                                        borderRadius: 2,
+                                        borderRadius: 6,
                                         fontSize: 12,
                                         cursor: hasNews ? 'pointer' : 'default',
-                                        border: isToday ? '2px solid #63b3ed' : 'none',
+                                        border: isToday ? '2px solid rgba(99, 179, 237, 0.8)' : (hasNews ? '1px solid rgba(255, 255, 255, 0.2)' : 'none'),
                                         fontWeight: isToday ? 'bold' : 'normal'
                                     }}
                                 >

@@ -61,7 +61,7 @@ export const AppLayout = () => {
                         <Avatar 
                             size={20}
                             icon={<UserOutlined />}
-                            style={{ backgroundColor: '#4a5568' }}
+                            style={{ backgroundColor: 'rgba(255, 255, 255, 0.25)' }}
                         />
                         <Typography.Text className="profile-text">
                             IvanZolo2004

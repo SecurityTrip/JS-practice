@@ -6,14 +6,12 @@
   padding-left: 8px;
   padding-right: 8px;
   margin-bottom: 16px;
-
+}
 
 .main-news-card {
-  background: rgba(255, 255, 255, 0.15);
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.18);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  background: transparent;
+  border: none;
+  box-shadow: none;
   border-radius: 18px;
 }
 
@@ -21,6 +19,7 @@
   position: relative;
   height: 400px;
   overflow: hidden;
+  border-radius: 18px;
 }
 
 .main-news-image {
@@ -28,6 +27,7 @@
   width: 100%;
   object-fit: cover;
   display: block;
+  border-radius: 18px;
 }
 
 .main-news-overlay {
@@ -48,9 +48,6 @@
   padding-right: 8px;
 }
 
-
-
-}
 .side-news-card {
   background: rgba(255, 255, 255, 0.15);
   border: 1px solid rgba(255, 255, 255, 0.18);
@@ -64,6 +61,7 @@
   position: relative;
   height: 180px;
   overflow: hidden;
+  border-radius: 18px 18px 0 0;
 }
 
 .side-news-image {
@@ -71,12 +69,26 @@
   width: 100%;
   object-fit: cover;
   display: block;
+  border-radius: 18px 18px 0 0;
 }
 
 .side-news-body {
   padding: 16px;
-  background-color: rgba(26, 32, 44, 0.4);
+  background: transparent;
   min-height: 120px;
+  position: relative;
+}
+
+.side-news-text-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 12px 16px;
+  border-radius: 18px 18px 18px 18px;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
 }
 
 .side-news-title {
@@ -101,32 +113,41 @@
 }
 
 .news-list-card {
-  background: rgba(45, 55, 72, 0.4);
-  border: none;
-  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.18);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-radius: 18px;
 }
 
 .news-list-body {
-  background: rgba(26, 32, 44, 0.4);
-  border-radius: 8px;
+  background: transparent;
+  border-radius: 18px;
   padding: 0;
 }
 
 .news-list-item {
-  padding: 16px 20px;
-  border-bottom: 1px solid #2d3748;
+  padding: 16px 20px 16px 32px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   cursor: pointer;
-  transition: background-color 0.2s;
+  transition: background-color 0.3s ease;
+  border-radius: 12px;
+  margin: 4px 8px;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
 }
 
 .news-list-item:hover {
-  background-color: #2d3748;
+  background: rgba(255, 255, 255, 0.08);
 }
 
 .news-list-avatar {
   width: 80px;
   height: 60px;
-  border-radius: 4px;
+  padding-left: 15px;
+  border-radius: 12px;
   overflow: hidden;
   flex-shrink: 0;
 }
@@ -136,6 +157,7 @@
   height: 100%;
   object-fit: cover;
   display: block;
+  border-radius: 12px 12px 8px 8px;
 }
 
 .news-list-title {
@@ -160,14 +182,19 @@
 }
 
 .news-pagination {
-  background: rgba(26, 32, 44, 0.4);
-  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.18);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-radius: 18px;
   padding: 16px;
 }
 
 .news-pagination .ant-pagination-item {
-  background-color: rgba(45, 55, 72, 0.6);
-  border: 1px solid #4a5568;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
 }
 
 .news-pagination .ant-pagination-item a {
@@ -175,7 +202,8 @@
 }
 
 .news-pagination .ant-pagination-item:hover {
-  background-color: rgba(45, 55, 72, 0.8);
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.3);
 }
 
 .news-pagination .ant-pagination-item:hover a {
@@ -183,8 +211,8 @@
 }
 
 .news-pagination .ant-pagination-item-active {
-  background-color: #4a5568;
-  border-color: #718096;
+  background: rgba(255, 255, 255, 0.25);
+  border-color: rgba(255, 255, 255, 0.4);
 }
 
 .news-pagination .ant-pagination-item-active a {
@@ -193,13 +221,15 @@
 
 .news-pagination .ant-pagination-prev,
 .news-pagination .ant-pagination-next {
-  background-color: rgba(45, 55, 72, 0.6);
-  border: 1px solid #4a5568;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
 }
 
 .news-pagination .ant-pagination-prev:hover,
 .news-pagination .ant-pagination-next:hover {
-  background-color: rgba(45, 55, 72, 0.8);
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.3);
 }
 
 .news-pagination .ant-pagination-prev .ant-pagination-item-link,

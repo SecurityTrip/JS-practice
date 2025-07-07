@@ -32,7 +32,6 @@ export const NewsList: React.FC = () => {
                                         alt="main news"
                                         src={topNews[0].image}
                                         className="main-news-image"
-                                        style={{ borderRadius: '20px' }}
                                     />
                                     <div className="main-news-overlay">
                                         {topNews[0].title}
@@ -67,22 +66,20 @@ export const NewsList: React.FC = () => {
                                     </div>
                                 }
                                 onClick={() => handleNewsClick(news.id)}
-                                bodyStyle={{ 
-                                    padding: '16px', 
-                                    backgroundColor: 'rgba(26, 32, 44, 0.4)' 
-                                }}
                                 className="side-news-card"
                             >
                                 <div className="side-news-body">
-                                    <Text className="side-news-title">
-                                        {news.title}
-                                    </Text>
-                                    <Text className="side-news-content">
-                                        {news.content}
-                                    </Text>
-                                    <Text className="side-news-meta">
-                                        {news.author} • {news.date}
-                                    </Text>
+                                    <div className="side-news-text-overlay">
+                                        <Text className="side-news-title">
+                                            {news.title}
+                                        </Text>
+                                        <Text className="side-news-content">
+                                            {news.content}
+                                        </Text>
+                                        <Text className="side-news-meta">
+                                            {news.author} • {news.date}
+                                        </Text>
+                                    </div>
                                 </div>
                             </Card>
                         </Col>
@@ -93,11 +90,6 @@ export const NewsList: React.FC = () => {
             {/* Остальные новости как список */}
             <Card
                 className="news-list-card"
-                bodyStyle={{ 
-                    background: 'rgba(26, 32, 44, 0.4)', 
-                    borderRadius: 8,
-                    padding: 0
-                }}
             >
                 <List
                     dataSource={restNews}
@@ -105,12 +97,6 @@ export const NewsList: React.FC = () => {
                         <List.Item
                             className="news-list-item"
                             onClick={() => handleNewsClick(news.id)}
-                            onMouseEnter={(e) => {
-                                e.currentTarget.style.backgroundColor = '#2d3748';
-                            }}
-                            onMouseLeave={(e) => {
-                                e.currentTarget.style.backgroundColor = 'transparent';
-                            }}
                         >
                             <List.Item.Meta
                                 avatar={
