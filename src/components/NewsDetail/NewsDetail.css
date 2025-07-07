@@ -30,8 +30,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .news-icon {
@@ -44,7 +42,7 @@
 .news-title {
   margin: 0;
   flex: 1;
-  color: #ffffff;
+  color: #ffffff !important; 
 }
 
 .news-meta {
