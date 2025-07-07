@@ -1,12 +1,14 @@
 import './Main.css';
-import { Layout, Row, Col } from 'antd';
+
+import { Col, Row } from 'antd';
+
 import { LeftSidebar } from '../../components/LeftSidebar';
 import { NewsList } from '../../components/NewsList';
 import { RightSidebar } from '../../components/RightSidebar';
 
 export const MainPage: React.FC = () => {
     return (
-        <div style={{ padding: '24px', background: '#f0f2f5', minHeight: '100vh' }}>
+        <div style={{ padding: '24px', minHeight: '100vh' }}>
             <Row gutter={24}>
                 <Col xs={24} sm={24} md={6} lg={6} xl={5}>
                     <LeftSidebar />

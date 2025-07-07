@@ -1,8 +1,12 @@
-import { Typography, Card, Row, Col } from 'antd';
+import { Card, Col, Row, Typography } from 'antd';
 import { useParams } from 'react-router-dom';
-import { newsData, NewsItem } from '../NewsList/newsData';
+
 import { LeftSidebar } from '../LeftSidebar';
+import * as NewsDataModule from '../NewsList/newsData';
 import { RightSidebar } from '../RightSidebar';
+
+const { newsData } = NewsDataModule;
+type NewsItem = NewsDataModule.NewsItem;
 
 const { Title, Text, Paragraph } = Typography;
 
@@ -12,14 +16,14 @@ export const NewsDetail: React.FC = () => {
 
     if (!newsItem) {
         return (
-            <div style={{ padding: '24px', background: '#f0f2f5', minHeight: '100vh' }}>
+            <div style={{ padding: '24px', minHeight: '100vh' }}>
                 <Title level={2}>Новость не найдена</Title>
             </div>
         );
     }
 
     return (
-        <div style={{ padding: '24px', background: '#f0f2f5', minHeight: '100vh' }}>
+        <div style={{ padding: '24px', minHeight: '100vh' }}>
             <Row gutter={24}>
                 <Col xs={24} sm={24} md={6} lg={6} xl={5}>
                     <LeftSidebar />
@@ -49,19 +53,20 @@ export const NewsDetail: React.FC = () => {
                             </Text>
                         </div>
 
-                        <div style={{ marginBottom: 24 }}>
+                        <div style={{ 
+                            marginBottom: 24,
+                            height: 300,
+                            overflow: 'hidden',
+                            borderRadius: 8
+                        }}>
                             <img 
                                 src={newsItem.image} 
                                 alt={newsItem.title}
                                 style={{ 
                                     width: '100%', 
-                                    height: 300, 
-                                    objectFit: 'cover', 
-                                    borderRadius: 8 
-                                }}
-                                onError={(e) => {
-                                    const target = e.target as HTMLImageElement;
-                                    target.src = 'https://via.placeholder.com/800x300/4a5568/ffffff?text=News+Image';
+                                    height: '100%', 
+                                    objectFit: 'cover',
+                                    display: 'block'
                                 }}
                             />
                         </div>

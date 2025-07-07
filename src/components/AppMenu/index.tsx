@@ -31,12 +31,13 @@ export const AppMenu = () => {
       theme={{
         components: {
           Menu: {
-            darkItemBg: '#462b4c',
-            darkItemSelectedBg: '#5a3a61',
-            darkItemHoverBg: '#5a3a61',
-            darkSubMenuItemBg: '#3a2240',
-            itemColor: '#ffffff',
+            darkItemBg: '#1a202c',
+            darkItemSelectedBg: '#2d3748',
+            darkItemHoverBg: '#2d3748',
+            darkSubMenuItemBg: '#1a202c',
+            itemColor: '#a0aec0',
             itemHoverColor: '#ffffff',
+            itemSelectedColor: '#ffffff',
           },
         },
       }}
@@ -47,7 +48,12 @@ export const AppMenu = () => {
         selectedKeys={[location.pathname.split('/')[1] || 'main']}
         onClick={({ key }) => navigate(`/${key}`)}
         items={tabs}
-        style={{ background: '#462b4c', border: 'none' }}
+        style={{ 
+          background: '#1a202c', 
+          border: 'none',
+          minWidth: 'auto',
+          flex: 'none'
+        }}
       />
     </ConfigProvider>
   );

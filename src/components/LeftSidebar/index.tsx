@@ -1,15 +1,15 @@
-import { Card, Typography, List, Avatar, Button, Progress } from 'antd';
-import { TrophyOutlined, StarOutlined } from '@ant-design/icons';
+import { StarOutlined, TrophyOutlined } from '@ant-design/icons';
+import { Button, Card, List, Typography } from 'antd';
 
 const { Title, Text } = Typography;
 
 export const LeftSidebar: React.FC = () => {
     const ratingData = [
-        { id: 1, name: 'Vitality', logo: '🏆', position: 1 },
-        { id: 2, name: 'Spirit', logo: '⚡', position: 2 },
-        { id: 3, name: 'FaZe', logo: '🔥', position: 3 },
-        { id: 4, name: 'MOUZ', logo: '❤️', position: 4 },
-        { id: 5, name: 'G2', logo: '⭐', position: 5 },
+        { id: 1, name: 'Vitality', logo: `${process.env.PUBLIC_URL}/Vitality.png`, position: 1 },
+        { id: 2, name: 'Spirit', logo: `${process.env.PUBLIC_URL}/team-spirit-seeklogo.png`, position: 2 },
+        { id: 3, name: 'FaZe', logo: `${process.env.PUBLIC_URL}/faze-clan-seeklogo.png`, position: 3 },
+        { id: 4, name: 'MOUZ', logo: `${process.env.PUBLIC_URL}/Mouz.png`, position: 4 },
+        { id: 5, name: 'G2', logo: `${process.env.PUBLIC_URL}/G2.png`, position: 5 },
     ];
 
     const playerOfWeek = {
@@ -17,7 +17,7 @@ export const LeftSidebar: React.FC = () => {
         country: '🇷🇺',
         team: 'Данила Крышанова',
         rating: '1.41',
-        image: 'https://img-cdn.hltv.org/playerbodyshot/17081.png?ixlib=java-2.1.0&w=200&s=e8c8e8c8e8c8e8c8e8c8e8c8e8c8e8c8'
+        image: `${process.env.PUBLIC_URL}/donk.png`
     };
 
     return (
@@ -69,7 +69,17 @@ export const LeftSidebar: React.FC = () => {
                             }}>
                                 <div style={{ display: 'flex', alignItems: 'center', width: '100%' }}>
                                     <Text style={{ color: '#a0aec0', width: 20 }}>{item.position}</Text>
-                                    <Text style={{ marginLeft: 8, color: '#ffffff' }}>{item.logo}</Text>
+                                    <div style={{ marginLeft: 8, width: 20, height: 20, flexShrink: 0 }}>
+                                        <img 
+                                            src={item.logo}
+                                            alt={item.name}
+                                            style={{
+                                                width: '100%',
+                                                height: '100%',
+                                                objectFit: 'contain'
+                                            }}
+                                        />
+                                    </div>
                                     <Text style={{ marginLeft: 8, color: '#ffffff' }}>{item.name}</Text>
                                 </div>
                             </List.Item>
@@ -103,11 +113,25 @@ export const LeftSidebar: React.FC = () => {
                 }}
             >
                 <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-                    <Avatar 
-                        size={80} 
-                        src={playerOfWeek.image}
-                        style={{ marginBottom: 12 }}
-                    />
+                    <div style={{
+                        width: 80,
+                        height: 80,
+                        borderRadius: '50%',
+                        overflow: 'hidden',
+                        marginBottom: 12,
+                        flexShrink: 0
+                    }}>
+                        <img
+                            src={playerOfWeek.image}
+                            alt={playerOfWeek.name}
+                            style={{
+                                width: '100%',
+                                height: '100%',
+                                objectFit: 'cover',
+                                display: 'block'
+                            }}
+                        />
+                    </div>
                     <Title level={4} style={{ color: '#ffffff', margin: 0 }}>
                         {playerOfWeek.name}
                     </Title>

@@ -1,75 +1,10 @@
-import { Card, Typography, Calendar, Badge, Select } from 'antd';
 import { CalendarOutlined } from '@ant-design/icons';
-import type { CalendarProps } from 'antd';
-import dayjs, { Dayjs } from 'dayjs';
-import 'dayjs/locale/ru';
+import { Card, Select } from 'antd';
 
-const { Title, Text } = Typography;
 const { Option } = Select;
 
-dayjs.locale('ru');
-
 export const RightSidebar: React.FC = () => {
-    const getListData = (value: Dayjs) => {
-        let listData: { type: string; content: string }[] = [];
-        
-        // Добавляем некоторые события для примера
-        const day = value.date();
-        if (day === 2) {
-            listData = [
-                { type: 'warning', content: 'Falcons подписали kyousuke' },
-            ];
-        } else if (day === 5) {
-            listData = [
-                { type: 'success', content: 'Wildcard изменения' },
-                { type: 'error', content: 'Virtus.Pro новости' },
-            ];
-        }
-        
-        return listData;
-    };
 
-    const getMonthData = (value: Dayjs) => {
-        if (value.month() === 8) {
-            return 1394;
-        }
-    };
-
-    const monthCellRender = (value: Dayjs) => {
-        const num = getMonthData(value);
-        return num ? (
-            <div className="notes-month">
-                <section>{num}</section>
-                <span>Backlog number</span>
-            </div>
-        ) : null;
-    };
-
-    const dateCellRender = (value: Dayjs) => {
-        const listData = getListData(value);
-        return (
-            <ul className="events" style={{ margin: 0, padding: 0, listStyle: 'none' }}>
-                {listData.map((item, index) => (
-                    <li key={index}>
-                        <Badge 
-                            status={item.type as any} 
-                            text={
-                                <Text style={{ fontSize: 10, color: '#666' }}>
-                                    {item.content.length > 15 ? `${item.content.substring(0, 15)}...` : item.content}
-                                </Text>
-                            } 
-                        />
-                    </li>
-                ))}
-            </ul>
-        );
-    };
-
-    const cellRender: CalendarProps<Dayjs>['cellRender'] = (current, info) => {
-        if (info.type === 'date') return dateCellRender(current);
-        if (info.type === 'month') return monthCellRender(current);
-        return info.originNode;
-    };
 
     return (
         <div>
@@ -174,7 +109,7 @@ export const RightSidebar: React.FC = () => {
                                     key={day} 
                                     style={{ 
                                         color: isToday ? '#ffffff' : '#a0aec0',
-                                        background: isToday ? '#4a5568' : hasNews ? '#2a4365' : 'transparent',
+                                        background: isToday ? '#4a5568' : (hasNews ? '#2a4365' : 'transparent'),
                                         padding: '4px 2px',
                                         borderRadius: 2,
                                         fontSize: 12,
