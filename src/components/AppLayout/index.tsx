@@ -1,8 +1,8 @@
 import {Layout, Typography} from 'antd';
-import Sider from 'antd/es/layout/Sider';
 import {Navigate, Route, Routes} from 'react-router';
 
 import {MainPage} from '../../pages/main/Main';
+import {NewsPage} from '../../pages/news';
 import {PlayersPage} from '../../pages/players';
 import {RatingPage} from '../../pages/rating';
 import {TeamsPage} from '../../pages/teams';
@@ -14,19 +14,20 @@ import {AppMenu} from '../AppMenu';
 export const AppLayout = () => {
     return (
         <Layout style={{minHeight: '100vh'}}>
-            <Sider width={250} style={{background: '#462b4c'}}>
-                <div style={{padding: '24px', color: '#ffffff'}}>
-                    <Typography.Title level={4} style={{color: '#ffffff', margin: 0}}>
-                        CyberSportsPortal
-                    </Typography.Title>
+            <Layout.Header style={{background: '#462b4c', display: 'flex', alignItems: 'center', padding: '0 24px'}}>
+                <Typography.Title level={4} style={{color: '#ffffff', margin: 0, marginRight: '24px'}}>
+                    CyberSportsPortal
+                </Typography.Title>
+                <div style={{flex: 1}}>
+                    <AppMenu/>
                 </div>
-                <AppMenu/>
-            </Sider>
+            </Layout.Header>
             <Layout>
                 <Layout.Content>
                     <Routes>
                         <Route index element={<MainPage/>}/>
                         <Route path="/main" element={<MainPage/>}/>
+                        <Route path="/news/:id" element={<NewsPage/>}/>
                         <Route path="/teams" element={<TeamsPage/>}/>
                         <Route path="/teams/:id" element={<TeamCardPage/>}/>
                         <Route path="/tournaments" element={<TournamentsPage/>}/>

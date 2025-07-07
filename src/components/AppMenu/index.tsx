@@ -23,7 +23,7 @@ export const AppMenu = () => {
     { key: 'teams', icon: <TeamOutlined />, label: 'Команды' },
     { key: 'tournaments', icon: <TrophyOutlined />, label: 'Турниры' },
     { key: 'players', icon: <FileOutlined />, label: 'Игроки' },
-    { key: 'rating', icon: <LineChartOutlined />, label: 'Расчет рейтинга' },
+    { key: 'rating', icon: <LineChartOutlined />, label: 'Рейтинг' },
   ];
 
   return (
@@ -43,10 +43,11 @@ export const AppMenu = () => {
     >
       <Menu
         theme="dark"
-        mode="inline"
+        mode="horizontal"
         selectedKeys={[location.pathname.split('/')[1] || 'main']}
         onClick={({ key }) => navigate(`/${key}`)}
         items={tabs}
+        style={{ background: '#462b4c', border: 'none' }}
       />
     </ConfigProvider>
   );
