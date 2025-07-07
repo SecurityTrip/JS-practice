@@ -1,3 +1,35 @@
+/* Liquid glass animated border for all menu items, visible only on selected */
+.ant-menu-dark.ant-menu-horizontal > .ant-menu-item {
+  position: relative;
+  z-index: 2;
+}
+.ant-menu-dark.ant-menu-horizontal > .ant-menu-item::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: calc(100% - 10px);
+  height: calc(100% - 40px);
+  background: linear-gradient(135deg, rgba(255,255,255,0.25) 0%, rgba(255,255,255,0.10) 100%);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.25), 0 1.5px 8px 0 rgba(255,255,255,0.15) inset;
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-radius: 20px;
+  pointer-events: none;
+  border: 1.5px solid rgba(255, 255, 255, 0.25);
+  z-index: 1;
+  opacity: 0;
+  transition:
+    opacity 0.4s,
+    box-shadow 0.4s,
+    background 0.4s,
+    border-radius 0.4s,
+    transform 0.4s;
+}
+.ant-menu-dark.ant-menu-horizontal > .ant-menu-item-selected::before {
+  opacity: 1;
+}
 .app-menu {
   background: rgba(34, 40, 47, 0.35);
   border: 1px solid rgba(255, 255, 255, 0.18);
@@ -30,30 +62,28 @@
 }
 
 .ant-menu-dark.ant-menu-horizontal > .ant-menu-item-selected::before {
-  content: '' !important;
-  position: absolute !important;
-  top: 50% !important;
-  left: 50% !important;
-  transform: translate(-50%, -50%) !important;
-  width: calc(100% - 10px) !important;
-  height: calc(100% - 40px) !important;
-  background: linear-gradient(135deg, rgba(255,255,255,0.25) 0%, rgba(255,255,255,0.10) 100%) !important;
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.25), 0 1.5px 8px 0 rgba(255,255,255,0.15) inset !important;
-  backdrop-filter: blur(24px) !important;
-  -webkit-backdrop-filter: blur(24px) !important;
-  border-radius: 20px !important;
-  pointer-events: none !important;
-  transition: all 0.3s cubic-bezier(.4,0,.2,1) !important;
-  z-index: 1 !important;
-  border: 1.5px solid rgba(255, 255, 255, 0.25) !important;
-  background: linear-gradient(135deg, rgba(255,255,255,0.25) 0%, rgba(255,255,255,0.10) 100%) !important;
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.25), 0 1.5px 8px 0 rgba(255,255,255,0.15) inset !important;
-  backdrop-filter: blur(24px) !important;
-  -webkit-backdrop-filter: blur(24px) !important;
-  border-radius: 20px !important;
-  pointer-events: none !important;
-  transition: all 0.3s cubic-bezier(.4,0,.2,1) !important;
-  z-index: 1 !important;
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: calc(100% - 10px);
+  height: calc(100% - 40px);
+  background: linear-gradient(135deg, rgba(255,255,255,0.25) 0%, rgba(255,255,255,0.10) 100%);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.25), 0 1.5px 8px 0 rgba(255,255,255,0.15) inset;
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-radius: 20px;
+  pointer-events: none;
+  border: 1.5px solid rgba(255, 255, 255, 0.25);
+  z-index: 1;
+  transition:
+    width 0.4s cubic-bezier(.4,0,.2,1),
+    height 0.4s cubic-bezier(.4,0,.2,1),
+    background 0.4s,
+    box-shadow 0.4s,
+    border-radius 0.4s,
+    transform 0.4s;
 }
 
 /* Liquid glass highlight */
