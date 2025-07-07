@@ -1,10 +1,58 @@
 import { CalendarOutlined } from '@ant-design/icons';
 import { Card, Select } from 'antd';
+import { useEffect, useState } from 'react';
 
 const { Option } = Select;
 
 export const RightSidebar: React.FC = () => {
+    const [currentDate, setCurrentDate] = useState(new Date());
+    const [selectedYear, setSelectedYear] = useState('');
+    const [selectedMonth, setSelectedMonth] = useState('');
+    const [today, setToday] = useState({ day: 0, month: 0, year: 0 });
 
+    const months = [
+        'Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь',
+        'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'
+    ];
+
+    useEffect(() => {
+        // Получаем текущую дату при загрузке компонента
+        const now = new Date();
+        setCurrentDate(now);
+        
+        // Устанавливаем сегодняшнюю дату
+        setToday({
+            day: now.getDate(),
+            month: now.getMonth(),
+            year: now.getFullYear()
+        });
+
+        // Устанавливаем текущий месяц и год в селекторы
+        setSelectedYear(now.getFullYear().toString());
+        setSelectedMonth(months[now.getMonth()]);
+    }, []);
+
+    // Функция для получения количества дней в месяце
+    const getDaysInMonth = (year: number, month: number) => {
+        return new Date(year, month + 1, 0).getDate();
+    };
+
+    // Функция для получения дня недели первого числа месяца (0 = воскресенье, 1 = понедельник, ...)
+    const getFirstDayOfMonth = (year: number, month: number) => {
+        const firstDay = new Date(year, month, 1).getDay();
+        return firstDay === 0 ? 6 : firstDay - 1; // Преобразуем чтобы понедельник был 0
+    };
+
+    const currentYear = parseInt(selectedYear) || today.year;
+    const currentMonthIndex = months.indexOf(selectedMonth);
+    const daysInMonth = getDaysInMonth(currentYear, currentMonthIndex);
+    const firstDayOfWeek = getFirstDayOfMonth(currentYear, currentMonthIndex);
+
+    const handleGoToToday = () => {
+        const now = new Date();
+        setSelectedYear(now.getFullYear().toString());
+        setSelectedMonth(months[now.getMonth()]);
+    };
 
     return (
         <div>
@@ -33,32 +81,27 @@ export const RightSidebar: React.FC = () => {
             >
                 <div style={{ marginBottom: 16 }}>
                     <Select 
-                        defaultValue="2025" 
+                        value={selectedYear}
+                        onChange={setSelectedYear}
                         style={{ width: 80, marginRight: 8 }}
                         size="small"
                     >
-                        <Option value="2025">2025</Option>
-                        <Option value="2024">2024</Option>
+                        {Array.from({ length: 10 }, (_, i) => today.year - 5 + i).map(year => (
+                            <Option key={year} value={year.toString()}>{year}</Option>
+                        ))}
                     </Select>
                     <Select 
-                        defaultValue="Июль" 
+                        value={selectedMonth}
+                        onChange={setSelectedMonth}
                         style={{ width: 100 }}
                         size="small"
                     >
-                        <Option value="Январь">Январь</Option>
-                        <Option value="Февраль">Февраль</Option>
-                        <Option value="Март">Март</Option>
-                        <Option value="Апрель">Апрель</Option>
-                        <Option value="Май">Май</Option>
-                        <Option value="Июнь">Июнь</Option>
-                        <Option value="Июль">Июль</Option>
-                        <Option value="Август">Август</Option>
-                        <Option value="Сентябрь">Сентябрь</Option>
-                        <Option value="Октябрь">Октябрь</Option>
-                        <Option value="Ноябрь">Ноябрь</Option>
-                        <Option value="Декабрь">Декабрь</Option>
+                        {months.map(month => (
+                            <Option key={month} value={month}>{month}</Option>
+                        ))}
                     </Select>
                     <button 
+                        onClick={handleGoToToday}
                         style={{ 
                             marginLeft: 8, 
                             background: '#4a5568', 
@@ -66,11 +109,28 @@ export const RightSidebar: React.FC = () => {
                             border: 'none', 
                             padding: '2px 8px', 
                             borderRadius: 4,
-                            fontSize: 12
+                            fontSize: 12,
+                            cursor: 'pointer'
                         }}
                     >
-                        Год
+                        Сегодня
                     </button>
+                </div>
+
+                {/* Текущая дата */}
+                <div style={{ 
+                    marginBottom: 12, 
+                    padding: '8px 12px', 
+                    background: 'rgba(74, 85, 104, 0.6)', 
+                    borderRadius: 4,
+                    textAlign: 'center'
+                }}>
+                    <div style={{ color: '#ffffff', fontSize: 14, fontWeight: 'bold' }}>
+                        {today.day} {months[today.month]} {today.year}
+                    </div>
+                    <div style={{ color: '#a0aec0', fontSize: 12 }}>
+                        {['Воскресенье', 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота'][currentDate.getDay()]}
+                    </div>
                 </div>
 
                 {/* Календарная сетка */}
@@ -94,14 +154,16 @@ export const RightSidebar: React.FC = () => {
                         ))}
                         
                         {/* Пустые ячейки для начала месяца */}
-                        {Array.from({ length: 4 }, (_, i) => (
+                        {Array.from({ length: firstDayOfWeek }, (_, i) => (
                             <div key={`empty-${i}`} />
                         ))}
                         
                         {/* Дни месяца */}
-                        {Array.from({ length: 31 }, (_, i) => {
+                        {Array.from({ length: daysInMonth }, (_, i) => {
                             const day = i + 1;
-                            const isToday = day === 2; // Выделяем 2 число как сегодня
+                            const isToday = day === today.day && 
+                                           currentMonthIndex === today.month && 
+                                           currentYear === today.year;
                             const hasNews = [2, 5, 7, 10, 15].includes(day);
                             
                             return (
@@ -114,7 +176,8 @@ export const RightSidebar: React.FC = () => {
                                         borderRadius: 2,
                                         fontSize: 12,
                                         cursor: hasNews ? 'pointer' : 'default',
-                                        border: isToday ? '1px solid #63b3ed' : 'none'
+                                        border: isToday ? '2px solid #63b3ed' : 'none',
+                                        fontWeight: isToday ? 'bold' : 'normal'
                                     }}
                                 >
                                     {day}

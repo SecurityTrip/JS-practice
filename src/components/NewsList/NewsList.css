@@ -146,4 +146,57 @@
 .pagination-container {
   text-align: center;
   margin-top: 24px;
+}
+
+.news-pagination {
+  background: rgba(26, 32, 44, 0.4);
+  border-radius: 8px;
+  padding: 16px;
+}
+
+.news-pagination .ant-pagination-item {
+  background-color: rgba(45, 55, 72, 0.6);
+  border: 1px solid #4a5568;
+}
+
+.news-pagination .ant-pagination-item a {
+  color: #a0aec0;
+}
+
+.news-pagination .ant-pagination-item:hover {
+  background-color: rgba(45, 55, 72, 0.8);
+}
+
+.news-pagination .ant-pagination-item:hover a {
+  color: #ffffff;
+}
+
+.news-pagination .ant-pagination-item-active {
+  background-color: #4a5568;
+  border-color: #718096;
+}
+
+.news-pagination .ant-pagination-item-active a {
+  color: #ffffff;
+}
+
+.news-pagination .ant-pagination-prev,
+.news-pagination .ant-pagination-next {
+  background-color: rgba(45, 55, 72, 0.6);
+  border: 1px solid #4a5568;
+}
+
+.news-pagination .ant-pagination-prev:hover,
+.news-pagination .ant-pagination-next:hover {
+  background-color: rgba(45, 55, 72, 0.8);
+}
+
+.news-pagination .ant-pagination-prev .ant-pagination-item-link,
+.news-pagination .ant-pagination-next .ant-pagination-item-link {
+  color: #a0aec0;
+}
+
+.news-pagination .ant-pagination-prev:hover .ant-pagination-item-link,
+.news-pagination .ant-pagination-next:hover .ant-pagination-item-link {
+  color: #ffffff;
 } 

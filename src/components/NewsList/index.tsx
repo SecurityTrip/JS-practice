@@ -144,12 +144,14 @@ export const NewsList: React.FC = () => {
             </Card>
 
             <div className="pagination-container">
-                <Pagination
-                    current={1}
-                    total={50}
-                    pageSize={10}
-                    showSizeChanger={false}
-                />
+                <div className="news-pagination">
+                    <Pagination
+                        current={1}
+                        total={50}
+                        pageSize={10}
+                        showSizeChanger={false}
+                    />
+                </div>
             </div>
         </div>
     );
