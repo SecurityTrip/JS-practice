@@ -46,7 +46,7 @@ export const AppLayout = () => {
                         prefix={<SearchOutlined className="header-icon" />}
                         className="search-input"
                         styles={{
-                            input: { color: '#ffffff', backgroundColor: 'transparent' }
+                            input: { color: '#000', backgroundColor: 'transparent' }
                         }}
                     />
 
@@ -59,7 +59,7 @@ export const AppLayout = () => {
                     {/* Профиль пользователя */}
                     <div className="profile-container">
                         <Avatar 
-                            size={20}
+                            size={25}
                             icon={<UserOutlined />}
                             style={{ backgroundColor: 'rgba(255, 255, 255, 0.25)' }}
                         />
