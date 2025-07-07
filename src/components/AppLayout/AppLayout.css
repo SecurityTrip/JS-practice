@@ -1,15 +1,21 @@
 .app-layout {
+  background: linear-gradient(180deg, #22282F 15%, #6172AC 100%);
+
   min-height: 100vh;
   background: linear-gradient(180deg, #22282F 15%, #6172AC 100%);
 }
 
 .app-header {
-  background: #22282F;
+  background: rgba(34, 40, 47, 0.35);
   display: flex;
   align-items: center;
   padding: 0 16px;
-  border-bottom: 1px solid #2d3748;
+  border-bottom: 1px solid rgba(255,255,255,0.18);
   height: 64px;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.18);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-radius: 18px;
 }
 
 .menu-container {
