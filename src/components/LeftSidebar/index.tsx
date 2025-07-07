@@ -124,16 +124,38 @@ export const LeftSidebar: React.FC = () => {
                 bodyStyle={{ 
                     background: 'transparent', 
                     borderRadius: '0 0 18px 18px',
-                    textAlign: 'center'
+                    padding: 16
                 }}
             >
-                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
+                    <div style={{ flex: 1 }}>
+                        <Title level={4} style={{ color: '#ffffff', margin: '0 0 8px 0' }}>
+                            {playerOfWeek.name}
+                        </Title>
+                        <Text style={{ color: '#a0aec0', display: 'block', marginBottom: 8 }}>
+                            {playerOfWeek.country} {playerOfWeek.team}
+                        </Text>
+                        <div style={{ 
+                            background: 'rgba(255, 255, 255, 0.2)', 
+                            border: '1px solid rgba(255, 255, 255, 0.3)',
+                            padding: '4px 12px', 
+                            borderRadius: 12,
+                            marginBottom: 4,
+                            display: 'inline-block'
+                        }}>
+                            <Text style={{ color: '#ffffff', fontWeight: 'bold' }}>
+                                {playerOfWeek.rating}
+                            </Text>
+                        </div>
+                        <Text style={{ color: '#a0aec0', fontSize: 12, display: 'block' }}>
+                            rating 2.1
+                        </Text>
+                    </div>
                     <div style={{
-                        width: 80,
-                        height: 80,
+                        width: 120,
+                        height: 120,
                         borderRadius: '50%',
                         overflow: 'hidden',
-                        marginBottom: 12,
                         flexShrink: 0
                     }}>
                         <img
@@ -147,26 +169,6 @@ export const LeftSidebar: React.FC = () => {
                             }}
                         />
                     </div>
-                    <Title level={4} style={{ color: '#ffffff', margin: 0 }}>
-                        {playerOfWeek.name}
-                    </Title>
-                    <Text style={{ color: '#a0aec0', display: 'block', marginBottom: 4 }}>
-                        {playerOfWeek.country} {playerOfWeek.team}
-                    </Text>
-                    <div style={{ 
-                        background: 'rgba(255, 255, 255, 0.2)', 
-                        border: '1px solid rgba(255, 255, 255, 0.3)',
-                        padding: '4px 12px', 
-                        borderRadius: 12,
-                        marginTop: 8
-                    }}>
-                        <Text style={{ color: '#ffffff', fontWeight: 'bold' }}>
-                            {playerOfWeek.rating}
-                        </Text>
-                    </div>
-                    <Text style={{ color: '#a0aec0', fontSize: 12, marginTop: 4 }}>
-                        rating 2.1
-                    </Text>
                 </div>
             </Card>
         </div>
