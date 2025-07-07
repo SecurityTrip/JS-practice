@@ -32,6 +32,7 @@ export const NewsList: React.FC = () => {
                                         alt="main news"
                                         src={topNews[0].image}
                                         className="main-news-image"
+                                        style={{ borderRadius: '20px' }}
                                     />
                                     <div className="main-news-overlay">
                                         {topNews[0].title}
