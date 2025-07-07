@@ -34,7 +34,7 @@
   position: absolute;
   bottom: 15px;
   left: 15px;
-  background: rgba(0, 0, 0, 0.9);
+  background: #373a43;
   color: white;
   padding: 12px 20px;
   border-radius: 6px;
@@ -84,7 +84,7 @@
   bottom: 0;
   left: 0;
   right: 0;
-  background: rgba(0, 0, 0, 0.5);
+  background: #373a43;
   padding: 12px 16px;
   border-radius: 18px 18px 18px 18px;
   backdrop-filter: blur(8px);
@@ -134,7 +134,7 @@
   transition: background-color 0.3s ease;
   border-radius: 12px;
   margin: 4px 8px;
-  background: rgba(0, 0, 0, 0.6);
+  background: #373a43;
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
 }
