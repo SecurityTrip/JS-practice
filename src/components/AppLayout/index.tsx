@@ -46,7 +46,7 @@ export const AppLayout = () => {
                         prefix={<SearchOutlined className="header-icon" />}
                         className="search-input"
                         styles={{
-                            input: { color: '#ffffff', backgroundColor: 'transparent' }
+                            input: { color: '#000', backgroundColor: 'transparent' }
                         }}
                     />
 
