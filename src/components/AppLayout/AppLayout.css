@@ -10,12 +10,7 @@
   display: flex;
   align-items: center;
   padding: 0 16px;
-  border-bottom: 1px solid rgba(255,255,255,0.18);
   height: 64px;
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.18);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border-radius: 18px;
 }
 
 .menu-container {
@@ -24,18 +19,18 @@
 }
 
 .logo-container {
+  margin-top: 3vh;
   position: absolute;
   left: 50%;
-  transform: translateX(-50%);
   cursor: pointer;
   z-index: 10;
   display: flex;
   align-items: center;
-  height: 64px;
+  height: 128px;
 }
 
 .logo {
-  height: 70px;
+  height: 110px;
 }
 
 .header-right {
@@ -49,19 +44,26 @@
   width: 160px;
   background: rgba(255, 255, 255, 0.15);
   border: 1px solid rgba(255, 255, 255, 0.18);
-  color: #ffffff;
+  color: #000 !important;
   border-radius: 12px;
 }
 
 .icon-container {
   display: flex;
   gap: 8px;
+  
 }
 
 .header-icon {
+  padding: 5px;
   font-size: 16px;
   color: #a0aec0;
   cursor: pointer;
+  border: 1px solid rgba(255, 255, 255, 0.212);
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 20px;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
 }
 
 .profile-container {

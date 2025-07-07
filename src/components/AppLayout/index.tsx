@@ -59,7 +59,7 @@ export const AppLayout = () => {
                     {/* Профиль пользователя */}
                     <div className="profile-container">
                         <Avatar 
-                            size={20}
+                            size={25}
                             icon={<UserOutlined />}
                             style={{ backgroundColor: 'rgba(255, 255, 255, 0.25)' }}
                         />
