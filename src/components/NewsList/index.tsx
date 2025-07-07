@@ -1,10 +1,9 @@
+import './NewsList.css';
+
 import { Card, Col, List, Pagination, Row, Typography } from 'antd';
 import { useNavigate } from 'react-router-dom';
 
-import * as NewsDataModule from './newsData';
-
-const { newsData } = NewsDataModule;
-type NewsItem = NewsDataModule.NewsItem;
+import { newsData, NewsItem } from './newsData';
 
 const { Text } = Typography;
 
@@ -21,111 +20,80 @@ export const NewsList: React.FC = () => {
     return (
         <div>
             {/* Первые 3 новости как блоки */}
-            <div style={{ marginBottom: 24 }}>
+            <div className="news-list-container">
                 {/* Главная новость - большая сверху */}
-                <div style={{ marginBottom: 16, paddingLeft: 8, paddingRight: 8 }}>
-                    <Card
-                        hoverable
-                        cover={
-                            <div style={{ 
-                                position: 'relative',
-                                height: 300,
-                                overflow: 'hidden'
-                            }}>
-                                <img
-                                    alt="main news"
-                                    src={topNews[0].image}
-                                    style={{ 
-                                        height: 300, 
-                                        width: '100%',
-                                        objectFit: 'cover',
-                                        display: 'block'
-                                    }}
-                                />
-                                <div style={{ 
-                                    position: 'absolute', 
-                                    bottom: 15, 
-                                    left: 15, 
-                                    background: 'rgba(0,0,0,0.8)', 
-                                    color: 'white', 
-                                    padding: '12px 20px', 
-                                    borderRadius: 6,
-                                    fontSize: 18,
-                                    fontWeight: 'bold',
-                                    maxWidth: 'calc(100% - 30px)'
-                                }}>
-                                    {topNews[0].title}
+                <Row gutter={16}>
+                    <Col span={24} className="main-news-container">
+                        <Card
+                            hoverable
+                            cover={
+                                <div className="main-news-image-container">
+                                    <img
+                                        alt="main news"
+                                        src={topNews[0].image}
+                                        className="main-news-image"
+                                    />
+                                    <div className="main-news-overlay">
+                                        {topNews[0].title}
+                                    </div>
                                 </div>
-                            </div>
-                        }
-                        onClick={() => handleNewsClick(topNews[0].id)}
-                        bodyStyle={{ padding: 0 }}
-                    />
-                </div>
+                            }
+                            onClick={() => handleNewsClick(topNews[0].id)}
+                            bodyStyle={{ padding: 0, backgroundColor: 'transparent' }}
+                            className="main-news-card"
+                        />
+                    </Col>
+                </Row>
 
                 {/* Вторая и третья новости рядом */}
                 <Row gutter={16}>
-                    {topNews.slice(1).map((news: NewsItem, index: number) => (
+                    {topNews.slice(1).map((news: NewsItem) => (
                         <Col 
                             xs={24} 
                             sm={12} 
                             key={news.id}
-                            style={{ 
-                                paddingLeft: index === 0 ? 8 : 8,
-                                paddingRight: index === 1 ? 8 : 8
-                            }}
+                            className="side-news-container"
                         >
                             <Card
                                 hoverable
                                 cover={
-                                    <div style={{ 
-                                        position: 'relative',
-                                        height: 200,
-                                        overflow: 'hidden'
-                                    }}>
+                                    <div className="side-news-image-container">
                                         <img
                                             alt={news.title}
                                             src={news.image}
-                                            style={{ 
-                                                height: 200, 
-                                                width: '100%',
-                                                objectFit: 'cover',
-                                                display: 'block'
-                                            }}
+                                            className="side-news-image"
                                         />
-                                        <div style={{ 
-                                            position: 'absolute', 
-                                            bottom: 10, 
-                                            left: 10, 
-                                            background: 'rgba(0,0,0,0.8)', 
-                                            color: 'white', 
-                                            padding: '8px 14px', 
-                                            borderRadius: 4,
-                                            fontSize: 14,
-                                            fontWeight: 'bold',
-                                            maxWidth: 'calc(100% - 20px)'
-                                        }}>
-                                            {news.title.length > 40 ? `${news.title.substring(0, 40)}...` : news.title}
-                                        </div>
                                     </div>
                                 }
                                 onClick={() => handleNewsClick(news.id)}
-                                bodyStyle={{ padding: 0 }}
-                            />
+                                bodyStyle={{ 
+                                    padding: '16px', 
+                                    backgroundColor: 'rgba(26, 32, 44, 0.4)' 
+                                }}
+                                className="side-news-card"
+                            >
+                                <div className="side-news-body">
+                                    <Text className="side-news-title">
+                                        {news.title}
+                                    </Text>
+                                    <Text className="side-news-content">
+                                        {news.content}
+                                    </Text>
+                                    <Text className="side-news-meta">
+                                        {news.author} • {news.date}
+                                    </Text>
+                                </div>
+                            </Card>
                         </Col>
                     ))}
                 </Row>
             </div>
 
             {/* Остальные новости как список */}
-            <Card 
-                style={{ 
-                    background: '#2d3748',
-                    border: 'none',
-                    borderRadius: 8
-                }}
+            <Card
+                className="news-list-card"
                 bodyStyle={{ 
-                    background: '#1a202c', 
+                    background: 'rgba(26, 32, 44, 0.4)', 
                     borderRadius: 8,
                     padding: 0
                 }}
@@ -134,12 +102,7 @@ export const NewsList: React.FC = () => {
                     dataSource={restNews}
                     renderItem={(news: NewsItem) => (
                         <List.Item
-                            style={{
-                                padding: '16px 20px',
-                                borderBottom: '1px solid #2d3748',
-                                cursor: 'pointer',
-                                transition: 'background-color 0.2s'
-                            }}
+                            className="news-list-item"
                             onClick={() => handleNewsClick(news.id)}
                             onMouseEnter={(e) => {
                                 e.currentTarget.style.backgroundColor = '#2d3748';
@@ -150,37 +113,26 @@ export const NewsList: React.FC = () => {
                         >
                             <List.Item.Meta
                                 avatar={
-                                    <div style={{ 
-                                        width: 80, 
-                                        height: 60, 
-                                        borderRadius: 4, 
-                                        overflow: 'hidden',
-                                        flexShrink: 0
-                                    }}>
+                                    <div className="news-list-avatar">
                                         <img
                                             src={news.image}
                                             alt={news.title}
-                                            style={{
-                                                width: '100%',
-                                                height: '100%',
-                                                objectFit: 'cover',
-                                                display: 'block'
-                                            }}
+                                            className="news-list-avatar-image"
                                         />
                                     </div>
                                 }
                                 title={
-                                    <Text strong style={{ color: '#ffffff', fontSize: 14 }}>
+                                    <Text className="news-list-title">
                                         {news.title}
                                     </Text>
                                 }
                                 description={
                                     <div>
-                                        <Text style={{ color: '#a0aec0', fontSize: 12 }}>
+                                        <Text className="news-list-description">
                                             {news.content}
                                         </Text>
                                         <br />
-                                        <Text style={{ color: '#718096', fontSize: 11 }}>
+                                        <Text className="news-list-source">
                                             {news.source} • {news.date}
                                         </Text>
                                     </div>
@@ -191,7 +143,7 @@ export const NewsList: React.FC = () => {
                 />
             </Card>
 
-            <div style={{ textAlign: 'center', marginTop: 24 }}>
+            <div className="pagination-container">
                 <Pagination
                     current={1}
                     total={50}

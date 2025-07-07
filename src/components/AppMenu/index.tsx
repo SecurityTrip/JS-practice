@@ -1,3 +1,5 @@
+import './AppMenu.css';
+
 import {
   FileOutlined,
   HomeOutlined,
@@ -31,13 +33,18 @@ export const AppMenu = () => {
       theme={{
         components: {
           Menu: {
-            darkItemBg: '#1a202c',
-            darkItemSelectedBg: '#2d3748',
-            darkItemHoverBg: '#2d3748',
-            darkSubMenuItemBg: '#1a202c',
+            darkItemBg: '#22282F',
+            darkItemSelectedBg: 'transparent',
+            darkItemHoverBg: 'rgba(45, 55, 72, 0.6)',
+            darkSubMenuItemBg: '#22282F',
             itemColor: '#a0aec0',
             itemHoverColor: '#ffffff',
             itemSelectedColor: '#ffffff',
+            itemBorderRadius: 25,
+            itemMarginInline: 0,
+            itemPaddingInline: 10,
+            itemHeight: 40,
+            itemActiveBg: 'transparent',
           },
         },
       }}
@@ -48,12 +55,7 @@ export const AppMenu = () => {
         selectedKeys={[location.pathname.split('/')[1] || 'main']}
         onClick={({ key }) => navigate(`/${key}`)}
         items={tabs}
-        style={{ 
-          background: '#1a202c', 
-          border: 'none',
-          minWidth: 'auto',
-          flex: 'none'
-        }}
+        className="app-menu"
       />
     </ConfigProvider>
   );

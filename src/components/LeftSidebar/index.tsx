@@ -31,18 +31,18 @@ export const LeftSidebar: React.FC = () => {
                     </div>
                 }
                 headStyle={{ 
-                    background: 'linear-gradient(135deg, #4a5568, #2d3748)', 
+                    background: 'linear-gradient(135deg, rgba(74, 85, 104, 0.4), rgba(45, 55, 72, 0.4))', 
                     border: 'none',
                     borderRadius: '8px 8px 0 0'
                 }}
                 bodyStyle={{ padding: 0 }}
                 style={{ 
-                    background: '#2d3748',
+                    background: 'rgba(45, 55, 72, 0.3)',
                     border: 'none',
                     borderRadius: 8
                 }}
             >
-                <div style={{ padding: '12px 16px', background: '#1a202c', borderRadius: '0 0 8px 8px' }}>
+                <div style={{ padding: '12px 16px', background: 'rgba(26, 32, 44, 0.7)', borderRadius: '0 0 8px 8px' }}>
                     <div style={{ display: 'flex', gap: 12, marginBottom: 16 }}>
                         <Button 
                             type="primary" 
@@ -97,17 +97,17 @@ export const LeftSidebar: React.FC = () => {
                     </div>
                 }
                 headStyle={{ 
-                    background: 'linear-gradient(135deg, #4a5568, #2d3748)', 
+                    background: 'linear-gradient(135deg, rgba(74, 85, 104, 0.4), rgba(45, 55, 72, 0.4))', 
                     border: 'none',
                     borderRadius: '8px 8px 0 0'
                 }}
                 style={{ 
-                    background: '#2d3748',
+                    background: 'rgba(45, 55, 72, 0.3)',
                     border: 'none',
                     borderRadius: 8
                 }}
                 bodyStyle={{ 
-                    background: '#1a202c', 
+                    background: 'rgba(26, 32, 44, 0.3)', 
                     borderRadius: '0 0 8px 8px',
                     textAlign: 'center'
                 }}
