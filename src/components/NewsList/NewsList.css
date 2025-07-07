@@ -177,6 +177,9 @@
 }
 
 .pagination-container {
+  display: flex;
+  justify-content: center; /* по горизонтали */
+
   text-align: center;
   margin-top: 24px;
 }
@@ -189,6 +192,10 @@
   -webkit-backdrop-filter: blur(16px);
   border-radius: 18px;
   padding: 16px;
+
+  display: flex;
+  justify-content: center; /* по горизонтали */
+  align-items: center;     /* по вертикали */
 }
 
 .news-pagination .ant-pagination-item {
