@@ -9,6 +9,16 @@
 .ant-menu-dark.ant-menu-horizontal > .ant-menu-item-selected {
   background: transparent !important;
   position: relative !important;
+  z-index: 3 !important;
+}
+
+/* Улучшение читаемости текста в liquid glass */
+.ant-menu-dark.ant-menu-horizontal > .ant-menu-item-selected > span,
+.ant-menu-dark.ant-menu-horizontal > .ant-menu-item-selected > a {
+  position: relative;
+  z-index: 3;
+  color: #fff !important;
+  text-shadow: 0 1px 8px rgba(0,0,0,0.45), 0 0px 1px #000;
 }
 
 .ant-menu-dark.ant-menu-horizontal > .ant-menu-item-selected::after {
@@ -23,7 +33,29 @@
   transform: translate(-50%, -50%) !important;
   width: calc(100% - 10px) !important;
   height: calc(100% - 40px) !important;
-  border: 1px solid #a0aec0 !important;
+  border: 1.5px solid rgba(255, 255, 255, 0.25) !important;
+  background: linear-gradient(135deg, rgba(255,255,255,0.25) 0%, rgba(255,255,255,0.10) 100%) !important;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.25), 0 1.5px 8px 0 rgba(255,255,255,0.15) inset !important;
+  backdrop-filter: blur(24px) !important;
+  -webkit-backdrop-filter: blur(24px) !important;
   border-radius: 20px !important;
   pointer-events: none !important;
-} 
+  transition: all 0.3s cubic-bezier(.4,0,.2,1) !important;
+  z-index: 1 !important;
+}
+
+/* Liquid glass highlight */
+.ant-menu-dark.ant-menu-horizontal > .ant-menu-item-selected::after {
+  content: '';
+  position: absolute;
+  top: 18%;
+  left: 20%;
+  width: 60%;
+  height: 18%;
+  background: linear-gradient(120deg, rgba(255,255,255,0.55) 0%, rgba(255,255,255,0.15) 100%);
+  border-radius: 50%;
+  filter: blur(2px);
+  opacity: 0.7;
+  pointer-events: none;
+  z-index: 2;
+}
